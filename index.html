@@ -5,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FluentAI English Tutor</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Polyfill for process.env to prevent ReferenceError in browser environments
+      window.process = {
+        env: {
+          NODE_ENV: 'production'
+        }
+      };
+    </script>
     <style>
       /* Custom scrollbar for cleaner UI */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
+        background: #0a0a0a; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #888; 
+        background: #333; 
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #555; 
+        background: #f59e0b; 
       }
       
       /* Animation Utilities */
@@ -40,17 +48,29 @@
         opacity: 0; /* Start hidden for delay */
         animation: slideUp 0.6s ease-out forwards;
       }
+      
+      /* Hide scrollbar for horizontal scroll areas */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
     </style>
   <script type="importmap">
 {
   "imports": {
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@6",
-    "react-router": "https://esm.sh/react-router@6",
-    "@remix-run/router": "https://esm.sh/@remix-run/router@1"
+    "react/jsx-runtime": "https://aistudiocdn.com/react@^19.2.0/jsx-runtime",
+    "react-router-dom": "https://esm.sh/react-router-dom@6?deps=react@18.2.0,react-dom@18.2.0",
+    "react-router": "https://esm.sh/react-router@6?deps=react@18.2.0",
+    "@remix-run/router": "https://esm.sh/@remix-run/router@1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }
 </script>
