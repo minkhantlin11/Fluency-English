@@ -1,0 +1,7 @@
+{
+  "name": "FluentAI - English Tutor",
+  "description": "A comprehensive English learning assistant offering CEFR-based practice, AI evaluations, voice transcription, and real-time conversational practice using Gemini 2.5.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
